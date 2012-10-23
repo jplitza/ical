@@ -1,0 +1,51 @@
+.calendar {
+  list-style-type: none;
+  padding-left: 0;
+  display: table;
+  width: 450px;
+  border-top: 1px solid #aaa;
+}
+.calendar .day {
+  margin-top: 2px;
+  display: table-row;
+  text-align: right;
+}
+.calendar .day .date {
+  border-bottom: 1px solid #aaa;
+  display: table-cell;
+  padding-right: 0.5ex;
+  white-space: nowrap;
+}
+.calendar .day ul {
+  list-style-type: none;
+  list-style-image: none;
+  padding-left: 0;
+  display: table-cell;
+  text-align: left;
+  font-style: normal;
+}
+.calendar .day .event {
+  font-weight: normal;
+  border-bottom: 1px solid #aaa;
+  margin-bottom: 0;
+  padding: 0.1em 0;
+}
+.calendar .day .event .overview {
+  display: table;
+}
+.calendar .day .time,
+.calendar .day .starttime,
+.calendar .day .endtime {
+  font-style: italic;
+  display: table-cell;
+  padding-right: 0.5ex;
+}
+.calendar .day .summary {
+  display: table-cell;
+  cursor: pointer;
+  font-weight: bold;
+}
+.calendar .day .details {
+  margin-left: 2ex;
+  display: none;
+}

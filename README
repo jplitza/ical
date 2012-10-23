@@ -1,0 +1,19 @@
+The file sample.php contains self-contained code to show the calendar and
+can be used to adapt the display to other applications apart from MediaWiki.
+
+The file ical.php is the MediaWiki plugin and can be activated by adding the
+following to LocalSettings.php:
+require_once( "$IP/extensions/ical/ical.php" );
+
+It can then be used on any page by using the following tag:
+<ical file="path/to/file.ics" />
+or
+<ical url="http://example.com/url/to/file.ics" />
+
+The date formats can be modified by specifying the variables
+$wgIcalTimeFormat, $wgIcalDateFormat and $wgIcalShortDateFormat in the
+LocalSettings.php as strftime()-compatible strings or as parameters
+timeformat, dateformat and shortdateformat to the <ical /> tag.
+
+The number of days to show can be modified by setting the variable
+$wgIcalDaysToShow in LocalSettings.php or the tag-parameter days.
