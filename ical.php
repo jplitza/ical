@@ -3,6 +3,8 @@ $wgIcalTimeFormat = '%H:%M';
 $wgIcalDateFormat = '%a, %d. %b %Y';
 $wgIcalShortDateFormat = '%d.%m.';
 $wgIcalDaysToShow = 21;
+$wgIcalIcsLink = false; // not implemented yet!
+$wgIcalRefreshLink = true;
 
 $wgAutoloadClasses['vcalendar'] = dirname(__FILE__) . '/iCalcreator.class.php';
 $wgHooks['ParserFirstCallInit'][] = 'wfIcalParserInit';
@@ -65,7 +67,9 @@ function wfIcalGetEventDates($event) {
 
 // Execute 
 function wfIcalRender( $input, array $args, Parser $parser, PPFrame $frame ) {
-  global $wgIcalTimeFormat, $wgIcalDateFormat, $wgIcalShortDateFormat, $wgIcalDaysToShow, $wgOut;
+  global $wgIcalTimeFormat, $wgIcalDateFormat, $wgIcalShortDateFormat,
+    $wgIcalDaysToShow, $wgOut, $wgIcalRefreshLink, $wgIcalIcsLink;
+
   if(!empty($args["url"]))
     $config = array("url" => $args["url"]);
   elseif(!empty($args["file"]))
@@ -89,6 +93,14 @@ function wfIcalRender( $input, array $args, Parser $parser, PPFrame $frame ) {
     $daystoshow = intval($args['days']);
   else
     $daystoshow = $wgIcalDaysToShow;
+  if(!empty($args['refreshlink']))
+    $refreshlink = bool($args['refreshlink']);
+  else
+    $refreshlink = $wgIcalRefreshLink;
+  if(!empty($args['icslink']))
+    $icslink = bool($args['icslink']);
+  else
+    $icslink = $wgIcalIcsLink;
 
   if(!setlocale(LC_TIME, 'de_DE.UTF-8'))
     setlocale(LC_TIME, 'de_DE');
@@ -109,7 +121,14 @@ function wfIcalRender( $input, array $args, Parser $parser, PPFrame $frame ) {
     date('d', $enddate),
     "vevent");
 
-  $ret = '<ul class="calendar">' . "\n";
+  $ret = '';
+  if($refreshlink) {
+    $ret .= '<a href="?action=purge" style="float: right; font-size: 80%;">Aktualisieren</a>';
+  }
+  if($icslink) {
+    $ret .= '<a href="javascript:alert(\'Not implemented yet!\')" style="float: left; font-size: 80%;">ICS-Datei</a>';
+  }
+  $ret .= '<ul class="calendar">' . "\n";
 
   $i = 0;
   foreach($eventArray as $year => $yearArray) {
