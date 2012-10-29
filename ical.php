@@ -3,7 +3,7 @@ $wgIcalTimeFormat = '%H:%M';
 $wgIcalDateFormat = '%a, %d. %b %Y';
 $wgIcalShortDateFormat = '%d.%m.';
 $wgIcalDaysToShow = 21;
-$wgIcalIcsLink = false; // not implemented yet!
+$wgIcalIcsLink = true;
 $wgIcalRefreshLink = true;
 
 $wgAutoloadClasses['vcalendar'] = dirname(__FILE__) . '/iCalcreator.class.php';
@@ -126,7 +126,14 @@ function wfIcalRender( $input, array $args, Parser $parser, PPFrame $frame ) {
     $ret .= '<a href="?action=purge" style="float: right; font-size: 80%;">Aktualisieren</a>';
   }
   if($icslink) {
-    $ret .= '<a href="javascript:alert(\'Not implemented yet!\')" style="float: left; font-size: 80%;">ICS-Datei</a>';
+    $link = '';
+    if(!empty($config["directory"]))
+      $link = str_replace($_SERVER['DOCUMENT_ROOT'], "/", realpath(getcwd() . '/' . $config["directory"])) . '/';
+    if(!empty($config["filename"]))
+      $link .= $config["filename"];
+    elseif(!empty($config["url"]))
+      $link = $config["url"];
+    $ret .= '<a href="' . htmlspecialchars($link) . '" style="float: left; font-size: 80%;">ICS-Datei</a>';
   }
   $ret .= '<ul class="calendar">' . "\n";
 
