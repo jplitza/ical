@@ -17,7 +17,7 @@ ul.calendar {
   padding-right: 0.5ex;
   white-space: nowrap;
 }
-.calendar .day ul {
+.calendar .day > ul {
   list-style-type: none;
   list-style-image: none;
   padding-left: 0;

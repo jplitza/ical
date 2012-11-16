@@ -4,7 +4,7 @@ $wgIcalDateFormat = '%a, %d. %b %Y';
 $wgIcalShortDateFormat = '%d.%m.';
 $wgIcalDaysToShow = 21;
 $wgIcalIcsLink = true;
-$wgIcalRefreshLink = true;
+$wgIcalRefreshLink = false;
 
 $wgAutoloadClasses['vcalendar'] = dirname(__FILE__) . '/iCalcreator.class.php';
 $wgHooks['ParserFirstCallInit'][] = 'wfIcalParserInit';
@@ -105,6 +105,9 @@ function wfIcalRender( $input, array $args, Parser $parser, PPFrame $frame ) {
   if(!setlocale(LC_TIME, 'de_DE.UTF-8'))
     setlocale(LC_TIME, 'de_DE');
 
+  if(!$refreshlink)
+    $parser->disableCache();
+
   $startdate = time();
   $enddate = $startdate + 60*60*24*$daystoshow;
 
@@ -152,11 +155,14 @@ function wfIcalRender( $input, array $args, Parser $parser, PPFrame $frame ) {
             list($startDate, $endDate) = wfIcalGetEventDates($event);
             $description = $event->getProperty("description");
             $description = htmlspecialchars($description);
-            $description = str_replace('\n', "<br>\n", $description);
+            $description = str_replace('\n', "\n", $description);
             $description = str_replace(array('\\\\', '\r', '\t', '\v', '\e', '\f'), array('\\'), $description);
+            $description .= "\n";
+            $description = $parser->recursiveTagParse($description, $frame);
 
             $location = $event->getProperty("location");
             $location = htmlspecialchars($location);
+            $location = preg_replace('#^([A-Z0-9]{2,4}) ([A-Z]?\d{4})$#', '<a href="http://oracle-web.zfn.uni-bremen.de/lageplan/lageplan?Haus=$1&Raum=$2">$1 $2</a>', $location);
 
             $ret .= '       <li class="event"><div class="overview" onclick="$(\'#cal-details-' . $i . '\').slideToggle();"><span class="time">';
             if(date('His', $startDate) == '000000'
