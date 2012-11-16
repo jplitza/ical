@@ -5,6 +5,7 @@ $wgIcalShortDateFormat = '%d.%m.';
 $wgIcalDaysToShow = 21;
 $wgIcalIcsLink = true;
 $wgIcalRefreshLink = false;
+$wgIcalCaption = false;
 
 $wgAutoloadClasses['vcalendar'] = dirname(__FILE__) . '/iCalcreator.class.php';
 $wgHooks['ParserFirstCallInit'][] = 'wfIcalParserInit';
@@ -93,14 +94,18 @@ function wfIcalRender( $input, array $args, Parser $parser, PPFrame $frame ) {
     $daystoshow = intval($args['days']);
   else
     $daystoshow = $wgIcalDaysToShow;
-  if(!empty($args['refreshlink']))
-    $refreshlink = bool($args['refreshlink']);
+  if(isset($args['refreshlink']))
+    $refreshlink = (bool) $args['refreshlink'];
   else
     $refreshlink = $wgIcalRefreshLink;
-  if(!empty($args['icslink']))
-    $icslink = bool($args['icslink']);
+  if(isset($args['icslink']))
+    $icslink = (bool) $args['icslink'];
   else
     $icslink = $wgIcalIcsLink;
+  if(isset($args['caption']))
+    $caption = (bool) $args['caption'];
+  else
+    $caption = $wgIcalCaption;
 
   if(!setlocale(LC_TIME, 'de_DE.UTF-8'))
     setlocale(LC_TIME, 'de_DE');
@@ -126,7 +131,7 @@ function wfIcalRender( $input, array $args, Parser $parser, PPFrame $frame ) {
 
   $ret = '';
   if($refreshlink) {
-    $ret .= '<a href="?action=purge" style="float: right; font-size: 80%;">Aktualisieren</a>';
+    $ret .= '<a href="?action=purge" style="float: left; font-size: 80%;">Aktualisieren</a>';
   }
   if($icslink) {
     $link = '';
@@ -136,7 +141,10 @@ function wfIcalRender( $input, array $args, Parser $parser, PPFrame $frame ) {
       $link .= $config["filename"];
     elseif(!empty($config["url"]))
       $link = $config["url"];
-    $ret .= '<a href="' . htmlspecialchars($link) . '" style="float: left; font-size: 80%;">ICS-Datei</a>';
+    $ret .= '<a href="' . htmlspecialchars($link) . '" style="float: right; font-size: 80%;">ICS-Datei</a>';
+  }
+  if($caption) {
+    $ret .= '<h3 style="text-align: center; margin:0; padding: 0;">Termine der nächsten ' . $daystoshow . ' Tage</h3>' . "\n";
   }
   $ret .= '<ul class="calendar">' . "\n";
 
@@ -163,6 +171,7 @@ function wfIcalRender( $input, array $args, Parser $parser, PPFrame $frame ) {
             $location = $event->getProperty("location");
             $location = htmlspecialchars($location);
             $location = preg_replace('#^([A-Z0-9]{2,4}) ([A-Z]?\d{4})$#', '<a href="http://oracle-web.zfn.uni-bremen.de/lageplan/lageplan?Haus=$1&Raum=$2">$1 $2</a>', $location);
+            $location = str_replace('StugA-Raum', '<a href="http://oracle-web.zfn.uni-bremen.de/lageplan/lageplan?Haus=MZH&Raum=6450">StugA-Raum</a>', $location);
 
             $ret .= '       <li class="event"><div class="overview" onclick="$(\'#cal-details-' . $i . '\').slideToggle();"><span class="time">';
             if(date('His', $startDate) == '000000'
