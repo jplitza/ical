@@ -170,7 +170,7 @@ function wfIcalRender( $input, array $args, Parser $parser, PPFrame $frame ) {
 
             $location = $event->getProperty("location");
             $location = htmlspecialchars($location);
-            $location = preg_replace('#^([A-Z0-9]{2,4}) ([A-Z]?\d{4})$#', '<a href="http://oracle-web.zfn.uni-bremen.de/lageplan/lageplan?Haus=$1&Raum=$2">$1 $2</a>', $location);
+            $location = preg_replace('#(?<=^|\W)([A-Z][A-Za-z0-9]{1,3}) ([A-Z]?\d\.?\d{3})(?=\W|$)#', '<a href="http://oracle-web.zfn.uni-bremen.de/lageplan/lageplan?Haus=$1&Raum=$2">$1 $2</a>', $location);
             $location = str_replace('StugA-Raum', '<a href="http://oracle-web.zfn.uni-bremen.de/lageplan/lageplan?Haus=MZH&Raum=6450">StugA-Raum</a>', $location);
 
             $ret .= '       <li class="event"><div class="overview" onclick="$(\'#cal-details-' . $i . '\').slideToggle();"><span class="time">';
