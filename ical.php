@@ -197,6 +197,9 @@ function wfIcalRender( $input, array $args, Parser $parser, PPFrame $frame ) {
       }
     }
   }
+  if($i == 0) {
+    $ret .= '        <li class="day" style="text-align: center;">Keine Termine.</li>';
+  }
   $ret .= "</ul>\n";
   return $ret;
 }
