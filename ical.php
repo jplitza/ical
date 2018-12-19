@@ -69,7 +69,7 @@ function wfIcalGetEventDates($event) {
 // Execute 
 function wfIcalRender( $input, array $args, Parser $parser, PPFrame $frame ) {
   global $wgIcalTimeFormat, $wgIcalDateFormat, $wgIcalShortDateFormat,
-    $wgIcalDaysToShow, $wgOut, $wgIcalRefreshLink, $wgIcalIcsLink;
+    $wgIcalDaysToShow, $wgOut, $wgIcalRefreshLink, $wgIcalIcsLink,$wgIcalCaption;
 
   if(!empty($args["url"]))
     $config = array("url" => $args["url"]);
