@@ -17,22 +17,22 @@
 		"IcalTimeFormat": {
 			"value": "%H:%M"
 		},
-		"wgIcalDateFormat": {
+		"IcalDateFormat": {
 			"value": "%a, %d. %b %Y"
 		},
-		"wgIcalShortDateFormat": {
+		"IcalShortDateFormat": {
 			"value": "%d.%m."
 		},
-		"wgIcalDaysToShow": {
+		"IcalDaysToShow": {
 			"value": "21"
 		},
-		"wgIcalIcsLink": {
+		"IcalIcsLink": {
 			"value": "false"
 		},
-		"wgIcalRefreshLink": {
+		"IcalRefreshLink": {
 			"value": "false"
 		},
-		"wgIcalCaption": {
+		"IcalCaption": {
 			"value": "false"
 		}
 	},

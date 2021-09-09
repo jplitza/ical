@@ -7,7 +7,6 @@
  * @license GPL
  * @author  Jan-Philipp Litza 
  */
-use MediaWiki\MediaWikiServices;
 
 class Ical {
 	/**
@@ -95,7 +94,7 @@ class Ical {
 	  if(!empty($args['days']) && intval($args['days']))
 	    $daystoshow = intval($args['days']);
 	  else
-	    $daystoshow = $wgIcalDaysToShow;
+	    $daystoshow = intval($wgIcalDaysToShow);
 	  if(isset($args['refreshlink']))
 	    $refreshlink = (bool) $args['refreshlink'];
 	  else
