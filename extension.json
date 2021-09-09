@@ -1,0 +1,55 @@
+{
+	"name": "ical",
+	"author": [
+		"Jan-Philipp Litza",
+		"Kjell-Inge Gustafsson",
+		"Yitzchok Lavi",
+		"Rami Lehti"
+	],
+	"license-name": "GPL",
+	"url": "https://www.mediawiki.org/wiki/Extension:Ical",
+	"descriptionmsg": "ical-desc",
+	"type": "parserhook",
+	"requires": {
+		"MediaWiki": ">= 1.35.0"
+	},
+	"config": {
+		"IcalTimeFormat": {
+			"value": "%H:%M"
+		},
+		"wgIcalDateFormat": {
+			"value": "%a, %d. %b %Y"
+		},
+		"wgIcalShortDateFormat": {
+			"value": "%d.%m."
+		},
+		"wgIcalDaysToShow": {
+			"value": "21"
+		},
+		"wgIcalIcsLink": {
+			"value": "false"
+		},
+		"wgIcalRefreshLink": {
+			"value": "false"
+		},
+		"wgIcalCaption": {
+			"value": "false"
+		}
+	},
+	"MessagesDirs": {
+		"Ical": [
+			"i18n"
+		]
+	},
+	"Hooks": {
+		"ParserFirstCallInit": [
+			"Ical::init"
+		]
+	},
+	"AutoloadClasses": {
+		"Ical": "includes/ical.php",
+		"vcalendar": "includes/iCalcreator.class.php"
+	},
+	"manifest_version": 2
+}
+
