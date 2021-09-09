@@ -31,13 +31,16 @@
 			"value": "21"
 		},
 		"IcalIcsLink": {
-			"description": "Whether to a link to the ICS Data"
+			"description": "Whether to a link to the ICS Data",
+			"value": []
 		},
 		"IcalRefreshLink": {
-			"description": "Whether to a refresh link"
+			"description": "Whether to a refresh link",
+			"value": []
 		},
 		"IcalCaption": {
-			"description": "Whether to show a caption telling for how many days does Ical show appointments for"
+			"description": "Whether to show a caption telling for how many days does Ical show appointments for",
+			"value": []
 		}
 	},
 	"MessagesDirs": {
