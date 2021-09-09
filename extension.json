@@ -15,25 +15,29 @@
 	},
 	"config": {
 		"IcalTimeFormat": {
+			"description": "Time format used to display appointments",
 			"value": "%H:%M"
 		},
 		"IcalDateFormat": {
+			"description": "Date format used to display appointments",
 			"value": "%a, %d. %b %Y"
 		},
 		"IcalShortDateFormat": {
+			"description": "Short date format used to display appointments",
 			"value": "%d.%m."
 		},
 		"IcalDaysToShow": {
+			"description": "How many days of the calendar does Ical show",
 			"value": "21"
 		},
 		"IcalIcsLink": {
-			"value": "false"
+			"description": "Whether to a link to the ICS Data"
 		},
 		"IcalRefreshLink": {
-			"value": "false"
+			"description": "Whether to a refresh link"
 		},
 		"IcalCaption": {
-			"value": "false"
+			"description": "Whether to show a caption telling for how many days does Ical show appointments for"
 		}
 	},
 	"MessagesDirs": {
