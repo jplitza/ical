@@ -108,7 +108,7 @@ class Ical {
       setlocale(LC_TIME, 'de_DE');
   
     if(!$refreshlink)
-      $parser->disableCache();
+      $parser->getOutput()->updateCacheExpiry(0);
   
     $startdate = time();
     $enddate = $startdate + 60*60*24*$daystoshow;
