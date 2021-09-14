@@ -1,14 +1,14 @@
 {
-        "@metadata": {
-                "authors": []
-        },
-        "ical-desc": "Lisää <code>&lt;ical&gt;</code> tägin ical kalenterien näyttämistä varten",
-	"ical-no-appointments": "Ei tapaamisia",
-	"ical-location": "Paikka",
-	"ical-all-day": "koko päivä",
-	"ical-appointments-for-next-start": "Tapaamiset seuraaville",
-	"ical-appointments-for-next-end": "päivälle",
-	"ical-refresh": "Lataa uudelleen",
-	"ical-ics-data": "ICS-Data"
+  "@metadata": {
+          "authors": []
+  },
+  "ical-desc": "Lisää <code>&lt;ical&gt;</code> tägin ical kalenterien näyttämistä varten",
+  "ical-no-appointments": "Ei tapaamisia",
+  "ical-location": "Paikka",
+  "ical-all-day": "koko päivä",
+  "ical-appointments-for-next-start": "Tapaamiset seuraaville",
+  "ical-appointments-for-next-end": "päivälle",
+  "ical-refresh": "Lataa uudelleen",
+  "ical-ics-data": "ICS-Data"
 }
 

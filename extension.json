@@ -1,62 +1,62 @@
 {
-	"name": "ical",
-	"author": [
-		"Jan-Philipp Litza",
-		"Kjell-Inge Gustafsson",
-		"Yitzchok Lavi",
-		"Rami Lehti"
-	],
-	"license-name": "GPL",
-	"url": "https://www.mediawiki.org/wiki/Extension:Ical",
-	"descriptionmsg": "ical-desc",
-	"type": "parserhook",
-	"requires": {
-		"MediaWiki": ">= 1.35.0"
-	},
-	"config": {
-		"IcalTimeFormat": {
-			"description": "Time format used to display appointments",
-			"value": "%H:%M"
-		},
-		"IcalDateFormat": {
-			"description": "Date format used to display appointments",
-			"value": "%a, %d. %b %Y"
-		},
-		"IcalShortDateFormat": {
-			"description": "Short date format used to display appointments",
-			"value": "%d.%m."
-		},
-		"IcalDaysToShow": {
-			"description": "How many days of the calendar does Ical show",
-			"value": "21"
-		},
-		"IcalIcsLink": {
-			"description": "Whether to a link to the ICS Data",
-			"value": []
-		},
-		"IcalRefreshLink": {
-			"description": "Whether to a refresh link",
-			"value": []
-		},
-		"IcalCaption": {
-			"description": "Whether to show a caption telling for how many days does Ical show appointments for",
-			"value": []
-		}
-	},
-	"MessagesDirs": {
-		"Ical": [
-			"i18n"
-		]
-	},
-	"Hooks": {
-		"ParserFirstCallInit": [
-			"Ical::init"
-		]
-	},
-	"AutoloadClasses": {
-		"Ical": "includes/ical.php",
-		"vcalendar": "includes/iCalcreator.class.php"
-	},
-	"manifest_version": 2
+  "name": "ical",
+  "author": [
+    "Jan-Philipp Litza",
+    "Kjell-Inge Gustafsson",
+    "Yitzchok Lavi",
+    "Rami Lehti"
+  ],
+  "license-name": "GPL",
+  "url": "https://www.mediawiki.org/wiki/Extension:Ical",
+  "descriptionmsg": "ical-desc",
+  "type": "parserhook",
+  "requires": {
+    "MediaWiki": ">= 1.35.0"
+  },
+  "config": {
+    "IcalTimeFormat": {
+      "description": "Time format used to display appointments",
+      "value": "%H:%M"
+    },
+    "IcalDateFormat": {
+      "description": "Date format used to display appointments",
+      "value": "%a, %d. %b %Y"
+    },
+    "IcalShortDateFormat": {
+      "description": "Short date format used to display appointments",
+      "value": "%d.%m."
+    },
+    "IcalDaysToShow": {
+      "description": "How many days of the calendar does Ical show",
+      "value": "21"
+    },
+    "IcalIcsLink": {
+      "description": "Whether to a link to the ICS Data",
+      "value": []
+    },
+    "IcalRefreshLink": {
+      "description": "Whether to a refresh link",
+      "value": []
+    },
+    "IcalCaption": {
+      "description": "Whether to show a caption telling for how many days does Ical show appointments for",
+      "value": []
+    }
+  },
+  "MessagesDirs": {
+    "Ical": [
+      "i18n"
+    ]
+  },
+  "Hooks": {
+    "ParserFirstCallInit": [
+      "Ical::init"
+    ]
+  },
+  "AutoloadClasses": {
+    "Ical": "includes/ical.php",
+    "vcalendar": "includes/iCalcreator.class.php"
+  },
+  "manifest_version": 2
 }
 

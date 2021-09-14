@@ -1,14 +1,14 @@
 {
-        "@metadata": {
-                "authors": []
-        },
-        "ical-desc": "Fügt <code>&lt;ical&gt;</code> tags für die Anzeige Termine von ical Calendars",
-	"ical-no-appointments": "Keine Termine",
-	"ical-location": "Ort",
-	"ical-all-day": "ganztägig",
-	"ical-appointments-for-next-start": "Termine der nächsten",
-	"ical-appointments-for-next-end": "Tage",
-	"ical-refresh": "Aktualisieren",
-	"ical-ics-data": "ICS-Datei"
+  "@metadata": {
+          "authors": []
+  },
+  "ical-desc": "Fügt <code>&lt;ical&gt;</code> tags für die Anzeige Termine von ical Calendars",
+  "ical-no-appointments": "Keine Termine",
+  "ical-location": "Ort",
+  "ical-all-day": "ganztägig",
+  "ical-appointments-for-next-start": "Termine der nächsten",
+  "ical-appointments-for-next-end": "Tage",
+  "ical-refresh": "Aktualisieren",
+  "ical-ics-data": "ICS-Datei"
 }
 
