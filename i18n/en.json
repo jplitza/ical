@@ -1,0 +1,14 @@
+{
+  "@metadata": {
+          "authors": []
+  },
+  "ical-desc": "Adds <code>&lt;ical&gt;</code> tag for displaying ical calendars",
+  "ical-no-appointments": "No appointments",
+  "ical-location": "Location",
+  "ical-all-day": "all-day",
+  "ical-appointments-for-next-start": "Appointments for the next",
+  "ical-appointments-for-next-end": "days",
+  "ical-refresh": "Refresh",
+  "ical-ics-data": "ICS-Data"
+}
+

@@ -3,7 +3,7 @@ can be used to adapt the display to other applications apart from MediaWiki.
 
 The file ical.php is the MediaWiki plugin and can be activated by adding the
 following to LocalSettings.php:
-require_once( "$IP/extensions/ical/ical.php" );
+wfLoadExtension('ical')
 
 It can then be used on any page by using the following tag:
 <ical file="path/to/file.ics" />
